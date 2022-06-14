@@ -1,0 +1,22 @@
+version: "3.4"
+
+services:
+  alexstojda-ca-node-dev:
+    build:
+      context: .
+      target: node-dev
+    image: alexstojda/alexstojda-ca/node-dev:${VERSION:-local}
+
+  alexstojda-ca-go-dev:
+    build:
+      context: .
+      target: go-dev
+    image: alexstojda/alexstojda-ca/go-dev:${VERSION:-local}
+
+  alexstojda-ca:
+    build: .
+    image: alexstojda/alexstojda-ca:${VERSION:-local}
+    environment:
+      - SPA_PATH=/app/build
+    ports:
+      - "8080:8080"
