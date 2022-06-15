@@ -1,8 +1,0 @@
-setup:
-  config:
-    SPA_PATH: /app/build
-build:
-  docker:
-    web: Dockerfile
-run:
-  web: /app/alexstojda-ca
